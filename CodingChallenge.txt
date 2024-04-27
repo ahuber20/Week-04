@@ -1,0 +1,271 @@
+package week4;
+
+
+public class CodingChallenge {
+
+	public static void main(String[] args) {
+		//1) -------------------------------------
+		//Initializes the integer array and gives it all of its variables.
+		int[] ages = {3, 9, 23, 64, 2, 8, 28, 93};
+		
+		//Takes the value of the first element and subtracts it from the value of the last element.
+		//Last element is calculated by taking the length of the array and subtracting 1 since it's in a zero index.
+		int x = ages[0] - ages[ages.length - 1];
+		
+		//Prints the value of x to the console.
+		System.out.println(x);
+		
+		//Initializes a new array of integers and all its variables.
+		int[] ages2 = {403, 29, 32, 1, 57, 99, 14, 1012, 92};
+		
+		//Calculates the first element minus the last element the same way as ages.
+		x = ages2[0] - ages2[ages2.length - 1];
+		
+		//Prints the value of x to the console.
+		System.out.println(x);
+		
+		//Initializes the variable that will be used to calculate averages.
+		int average = 0;
+		
+		//For loop initialization. The loop will end when the index reaches the length of the array.
+		for (int i = 0; i < ages2.length; i++) {
+			
+			//Adds the value of each variable in the array "ages2" using the value of the index.
+			average += ages2[i];
+			
+		}
+		
+		//Divides the sum of the ages by the length of the array to find the average age.
+		average = average / ages2.length;
+		
+		//Prints the average to the console.
+		System.out.println(average);
+		
+		//Resets average to 0 for next use.
+		average = 0;
+		
+		//2) -------------------------------------
+		//Initializes the array "names" and sets the string of each name.
+		String[] names = {"Sam", "Tommy", "Tim", "Sally", "Buck", "Bob",};
+		
+		//Enhanced for loop initialization.
+		for (String name : names) {
+			
+			//Adds the length of each name to the average variable.
+			average += name.length();
+		}
+		
+		//Divides the sum of the name lengths by the length of the array to find the average name length.
+		average = average / names.length;
+		
+		//Prints the average.
+		System.out.println(average);
+		
+		//3) -------------------------------------
+		//Taking the length of the array minus 1 will give you the last element of the array due to it being 0 based.
+		String str = names[names.length - 1];
+		System.out.println(str);
+		
+		//4) -------------------------------------
+		//The first element of an array can be retrieved using the value 0 since it is 0 based
+		str = names[0];
+		System.out.println(str);
+		
+		//5) -------------------------------------
+		//Initializes the new array "nameLengths" and gives it a number of elements matching the "names" array.
+		int[] nameLengths = new int [names.length];
+		
+		//Initializes a for loop that repeats same number of times as elements that nameLengths has.
+		for (int i = 0; i < nameLengths.length; i++) {
+			
+			//Using the index to tell which element is being changed, the element is changed to the length of the name that matches the same numbered element.
+			nameLengths[i] = names[i].length();
+		}
+		
+		//Resets average variable to 0 for new use.
+		average = 0;
+		
+		//6) -------------------------------------
+		//For loop that takes each variable of nameLengths and adds it to average.
+		for (int nameLength : nameLengths) {
+			average += nameLength;
+		}
+		
+		//Divides the sum from the length of the nameLengths array.
+		average = average / nameLengths.length;
+		System.out.println(average);
+		
+		//7) -------------------------------------
+		//String multiHello will print "Hello" whatever number of times the int value is equal to.
+		String multiHello = multipliedWord("Hello", 3);
+		System.out.println(multiHello);
+		
+		//8) -------------------------------------
+		//String fullName will combine the two strings with a space in the middle.
+		String fullName = combineNames("Thomas", "Johnson");
+		System.out.println(fullName);
+		
+		//9) -------------------------------------
+		//Array initialization
+		int[] numbers = {32, 14, 9, 3, 10, 12, 22};
+		
+		//Method that will tell whether or not the sum of the array is above 100.
+		boolean hundredPlus = intArraySum(numbers);
+		System.out.println(hundredPlus);
+		
+		//10) -------------------------------------
+		double[] numbers2 = {10.52, 1.31, 2.01, 4.37};
+		
+		//Takes the average of the array numbers2.
+		double average2 = doubleAverage(numbers2);
+		System.out.println(average2);
+		
+		//11) -------------------------------------
+		double[] array1 = {11.03, 4.32, 3.12, 9.84};
+		
+		//Prints the method result.
+		System.out.println(doubleAverageGreater(array1, numbers2));
+		
+		//12) -------------------------------------
+		//Variable initialization.
+		double moneyInPocket = 14.52;
+		boolean isHotOutside = false;
+		
+		//Prints the method result.
+		System.out.println(willBuyDrink(moneyInPocket, isHotOutside));
+		
+		//13) -------------------------------------
+		//Initialization of all arrays.
+		double[] num1 = {14, 92.30, 4.51, 0.32, 53.88};
+		double[] num2 = {4.2, 2.43, 8.9, 7.26, 104.03};
+		double[] num3 = {1, 4.51, 0.01, 10.9};
+		
+		//Prints the method result.
+		System.out.println(averageOfAverages(num1, num2, num3));
+		//I created this method to show that adding more and more numbers/arrays to a problem will be able to be solved in a near identical, if not identical, way to all the other problems.
+		//I chose arrays because they are more complicated than regular numbers and take a bit more thinking to get the correct result out of.
+		
+	}
+	
+	//Method #13
+	public static double averageOfAverages(double[] nums1, double[] nums2, double[] nums3) {
+		double average1 = 0;
+		double average2 = 0;
+		double average3 = 0;
+		
+		//Sums all of the arrays.
+		for (double num1 : nums1) {
+			average1 += num1;
+		}
+		for (double num2 : nums2) {
+			average2 += num2;
+		}
+		for (double num3 : nums3) {
+			average3 += num3;
+		}
+		
+		//Gets the average of each separate array.
+		average1 = average1 / nums1.length;
+		average2 = average2 / nums2.length;
+		average3 = average3 / nums3.length;
+		
+		//Returns the average of all the array averages.
+		return (average1 + average2 + average3) / 3;
+	}
+	
+	//Method #12
+	public static boolean willBuyDrink(double number, boolean isHot) {
+		
+		//If the boolean "isHot" is true and the number is greater than 10.50, then the boolean will return true. Otherwise it will return false.
+		if (isHot && number > 10.50) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	//Method #11
+	public static boolean doubleAverageGreater(double[] numbers1, double[] numbers2) {
+		
+		//Initialization of both doubles.
+		double a = 0;
+		double b = 0;
+		
+		//Loop that calculates the sum of each array.
+		for (double number : numbers1) {
+			a += number;
+		}
+		for (double number2 : numbers2) {
+			b += number2;
+		}
+		
+		//Array sums divided by array lengths.
+		a = a / numbers1.length;
+		b = b / numbers2.length;
+		
+		//If the first array is greater than the second array return true, otherwise return false.
+		if (a > b) {
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	//Method #10
+	public static double doubleAverage(double[] numbers) {
+		
+		//The array numbers are added to sum which is then divided by the length of the array to get the average.
+		double sum = 0;
+		for (double number : numbers) {
+			sum += number;
+		}
+		return sum / numbers.length;
+	}
+	
+	//Method #9
+	public static boolean intArraySum(int[] numbers) {
+		
+		
+		int sum = 0;
+		
+		//For each number in the array, that number will be added to the sum.
+		for (int number : numbers) {
+			sum += number;
+		}
+		
+		//If the sum of numbers in the array is above 100, the method will return true. Otherwise it will return false.
+		if (sum > 100) {
+			return true;
+		} else { 
+			return false;
+		}
+		
+	}
+	
+	//Method initialization. #8
+	public static String combineNames(String firstName, String lastName) {
+		
+		//firstName and lastName are combined with a space in the middle to show a full name given to the variable "result".
+		String result = firstName + " " + lastName;
+		
+		//Returns result to be used in the main body.
+		return result;
+	}
+	
+	//Method initialization #7
+	public static String multipliedWord(String word, int n) {
+		
+		//Used StringBuilder for better alteration in strings.
+		StringBuilder result = new StringBuilder();
+		
+		//The chosen word will be added to itself n number of times.
+		for (int i = 0; i < n; i++) {
+			result.append(word);
+		}
+		
+		//Returns the result to the method for use in the main body.
+		return result.toString();
+	}
+	
+
+}
